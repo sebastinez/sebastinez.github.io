@@ -5,3 +5,9 @@ I don't want to create a blog or upload a about me page, so I will whenever I fe
 Be it Blockchain, or Artificial Intelligence, WASM, etc..
 
 Will use this README as kind of notebook for these projects.
+
+**Next project:**
+- Decentralized Token Marketplace
+
+**Backlog:**
+To be filled, feel free to chime in with a PR..
