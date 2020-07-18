@@ -12,6 +12,7 @@ p {
 h1 {
   font-family: "Oleo Script", cursive;
   font-size: 4rem;
+  cursor: pointer;
 }
 
 #social-container {
