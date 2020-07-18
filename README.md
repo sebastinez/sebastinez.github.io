@@ -10,4 +10,4 @@ Will use this README as kind of notebook for these projects.
 - Decentralized Token Marketplace
 
 **Backlog:**
-To be filled, feel free to chime in with a PR..
+> To be filled, feel free to chime in with a PR..
