@@ -6,8 +6,13 @@
     <title>Document</title>
   </head>
   <body>
+    <div id="root"></div>
     <script>
-      navigator.mediaDevices.enumerateDevices().then(console.log);
+      navigator.mediaDevices.enumerateDevices().then((result) => {
+        document.getElementById("root").innerHTML = `<pre>${JSON.stringify(
+          result
+        )}</pre>`;
+      });
     </script>
   </body>
 </html>
