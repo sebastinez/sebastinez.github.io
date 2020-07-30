@@ -18,18 +18,24 @@
         text-decoration: none;
         color: unset;
       }
-      * a:hover {
-        display: inline-block;
-        transform: translateX(15px);
-        transition: all 100ms ease;
-      }
+      
       #container {
+        padding-top: 10vh;
         font-family: "Sacramento", cursive;
         height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: start;
         align-items: center;
+      }
+      #back {
+        width: 60vw;
+        padding-bottom:1.5rem;
+      }
+      #back:hover {
+        display:inline-block;
+        fill: magenta;
+        transition: 300ms;
       }
       #description {
         font-size: 2rem;
@@ -46,13 +52,68 @@
       #news h1 {
         margin-bottom: 1.5rem;
       }
+      #news-content {
+        overflow-y: scroll;
+      }
       #news-content div {
         margin-bottom: 1rem;
+      }
+      #news-content::-webkit-scrollbar {
+        display:none;
+      }
+      #news-content a:hover {
+        display: inline-block;
+        transform: translateX(15px);
+        transition: all 100ms ease;
       }
     </style>
   </head>
   <body>
+    
     <div id="container">
+      <div id="back">
+        <a href="/">
+<svg
+      id="back_svg"
+      style="enable-background: new 0 0 100 100;"
+      version="1.1"
+      width="50"
+      viewBox="0 0 100 100"
+      xml:space="preserve"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+    >
+      <g id="Layer_8_copy_4">
+        <path
+          d="M58.644,27.26v8.294c0,0.571-0.305,1.1-0.8,1.385L37.632,48.608c-1.066,0.616-1.066,2.155,0,2.771l20.212,11.669   c0.495,0.286,0.8,0.814,0.8,1.385v8.294c0,1.231-1.333,2.001-2.399,1.385L16.869,51.379c-1.066-0.616-1.066-2.155,0-2.771   l39.375-22.733C57.311,25.259,58.644,26.029,58.644,27.26z"
+        />
+        <path
+          d="M57.844,63.048l-2.376-1.372c-0.013,0.043-0.023,0.09-0.032,0.136l0.409,0.236c0.495,0.286,0.8,0.814,0.8,1.385v8.294   c0,1.008-0.894,1.693-1.803,1.575l1.404,0.81c1.066,0.616,2.399-0.154,2.399-1.385v-8.294   C58.644,63.862,58.339,63.334,57.844,63.048z"
+        />
+        <path
+          d="M37.632,48.608l20.212-11.669c0.495-0.286,0.8-0.814,0.8-1.385V27.26c0-1.115-1.092-1.84-2.091-1.512   c0.054,0.16,0.091,0.328,0.091,0.512v8.294c0,0.571-0.305,1.1-0.8,1.385L35.632,47.608c-0.078,0.052-0.745,0.516-0.8,1.385   c-0.057,0.911,0.609,1.467,0.673,1.518c0.639,0.443,1.277,0.885,1.916,1.328c-0.032-0.112-0.07-0.312,0.019-0.51   c0.011-0.025,0.024-0.049,0.037-0.07C36.582,50.587,36.625,49.19,37.632,48.608z"
+        />
+        <path
+          d="M58.644,27.26v8.294c0,0.571-0.305,1.1-0.8,1.385L37.632,48.608   c-1.066,0.616-1.066,2.155,0,2.771l20.212,11.669c0.495,0.286,0.8,0.814,0.8,1.385v8.294c0,1.231-1.333,2.001-2.399,1.385   L16.869,51.379c-1.066-0.616-1.066-2.155,0-2.771l39.375-22.733C57.311,25.259,58.644,26.029,58.644,27.26z"
+          style="fill: none; stroke: #000000; stroke-miterlimit: 10;"
+        />
+        <path
+          d="M86.058,27.26v8.294c0,0.571-0.305,1.1-0.8,1.385L65.047,48.608c-1.066,0.616-1.066,2.155,0,2.771l20.212,11.669   c0.495,0.286,0.8,0.814,0.8,1.385v8.294c0,1.231-1.333,2.001-2.399,1.385L44.283,51.379c-1.066-0.616-1.066-2.155,0-2.771   l39.375-22.733C84.725,25.259,86.058,26.029,86.058,27.26z"
+        />
+        <path
+          d="M85.258,63.048l-2.376-1.372c-0.013,0.043-0.023,0.09-0.032,0.136l0.409,0.236c0.495,0.286,0.8,0.814,0.8,1.385v8.294   c0,1.008-0.894,1.693-1.803,1.575l1.404,0.81c1.066,0.616,2.399-0.154,2.399-1.385v-8.294   C86.058,63.862,85.753,63.334,85.258,63.048z"
+        />
+        <path
+          d="M65.047,48.608l20.212-11.669c0.495-0.286,0.8-0.814,0.8-1.385V27.26c0-1.115-1.092-1.84-2.091-1.512   c0.054,0.16,0.091,0.328,0.091,0.512v8.294c0,0.571-0.305,1.1-0.8,1.385L63.047,47.608c-0.078,0.052-0.745,0.516-0.8,1.385   c-0.057,0.911,0.609,1.467,0.673,1.518c0.639,0.443,1.277,0.885,1.916,1.328c-0.032-0.112-0.07-0.312,0.019-0.51   c0.011-0.025,0.024-0.049,0.037-0.07C63.996,50.587,64.039,49.19,65.047,48.608z"
+        />
+        <path
+          d="M86.058,27.26v8.294c0,0.571-0.305,1.1-0.8,1.385L65.047,48.608   c-1.066,0.616-1.066,2.155,0,2.771l20.212,11.669c0.495,0.286,0.8,0.814,0.8,1.385v8.294c0,1.231-1.333,2.001-2.399,1.385   L44.283,51.379c-1.066-0.616-1.066-2.155,0-2.771l39.375-22.733C84.725,25.259,86.058,26.029,86.058,27.26z"
+          style="fill: none; stroke: #000000; stroke-miterlimit: 10;"
+        />
+      </g>
+    </svg>
+</a>
+</div>
       <div id="description">Día de cuarentena</div>
       <div id="days">...</div>
       <div id="news">
@@ -62,13 +123,14 @@
     </div>
     <script defer>
       const days = document.getElementById("days");
+      const back = document.getElementById("back_svg");
       const container = document.getElementById("container");
       const newsContainer = document.getElementById("news-content");
       const searchString = "coronavirus|COVID-19";
       const timeDiff = new Date().getTime() - Date.parse("20 March 2020");
       days.innerText = Math.floor(timeDiff / (1000 * 3600 * 24) + 1);
       const currentHour = new Date().getHours();
-      let theme = currentHour > 8 && currentHour < 22 ? 1 : 0;
+      let theme = localStorage.getItem("theme") ?? (currentHour > 8 && currentHour < 22 ? "light" : "dark");
       changeTheme();
 
       fetch("https://www.infobae.com/feeds/rss/")
@@ -94,9 +156,10 @@
         });
 
       function changeTheme() {
-        container.style.backgroundColor = theme === 1 ? "#fff" : "#000";
-        container.style.color = theme === 1 ? "#000" : "#fff";
-        theme = theme === 1 ? 0 : 1;
+        back.style.fill = theme === "light" ? "#000" : "#fff"
+        container.style.backgroundColor = theme === "light" ? "#fff" : "#000";
+        container.style.color = theme === "light" ? "#000" : "#fff";
+        theme = theme === "light" ? 0 : 1;
       }
     </script>
   </body>

@@ -5,6 +5,11 @@
   font-family: monospace;
 }
 
+* a {
+  text-decoration: none;
+  color: unset;
+}
+
 p {
   margin-bottom: 20px;
 }
@@ -42,4 +47,8 @@ svg:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+#links:hover {
+  text-decoration: underline;
+  transition: 300ms;
 }

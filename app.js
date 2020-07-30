@@ -4,7 +4,8 @@ const svg = Array.from(document.getElementsByTagName("svg"));
 
 title.addEventListener("click", toggle);
 
-let theme = localStorage.getItem("theme");
+const currentHour = new Date().getHours();
+let theme = localStorage.getItem("theme") ?? (currentHour > 8 && currentHour < 22 ? 1 : 0);
 change();
 if (!theme) {
   localStorage.setItem("theme", "light");
