@@ -7,7 +7,9 @@ Be it Blockchain, or Artificial Intelligence, WASM, etc..
 Will use this README as kind of notebook for these projects.
 
 **Next project:**
+
 - Decentralized Token Marketplace
 
 **Backlog:**
+
 > To be filled, feel free to chime in with a PR..

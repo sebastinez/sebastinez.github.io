@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cuarentena</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      * a {
+        text-decoration: none;
+        color: unset;
+      }
+      * a:hover {
+        display: inline-block;
+        transform: translateX(15px);
+        transition: all 100ms ease;
+      }
+      #container {
+        font-family: "Sacramento", cursive;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+      }
+      #description {
+        font-size: 2rem;
+      }
+      #days {
+        margin: 1.5rem 0;
+        font-size: 8rem;
+      }
+      #news {
+        font-family: Arial, Helvetica, sans-serif !important;
+        width: 60vw;
+        height: 500px;
+      }
+      #news h1 {
+        margin-bottom: 1.5rem;
+      }
+      #news-content div {
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="description">Día de cuarentena</div>
+      <div id="days">...</div>
+      <div id="news">
+        <h1>News</h1>
+        <div id="news-content"></div>
+      </div>
+    </div>
+    <script defer>
+      const days = document.getElementById("days");
+      const container = document.getElementById("container");
+      const newsContainer = document.getElementById("news-content");
+      const searchString = "coronavirus|COVID-19";
+      const timeDiff = new Date().getTime() - Date.parse("20 March 2020");
+      days.innerText = Math.floor(timeDiff / (1000 * 3600 * 24) + 1);
+      const currentHour = new Date().getHours();
+      let theme = currentHour > 8 && currentHour < 22 ? 1 : 0;
+      changeTheme();
+
+      fetch("https://www.infobae.com/feeds/rss/")
+        .then((response) => response.text())
+        .then((str) => new window.DOMParser().parseFromString(str, "text/xml"))
+        .then((data) => {
+          const items = Array.from(data.querySelectorAll("item"))
+            .filter((el) =>
+              el.querySelector("title").innerHTML.match(searchString)
+            )
+            .map((el) => ({
+              title: el.querySelector("title").innerHTML,
+              date: el.querySelector("pubDate").innerHTML,
+              link: el.querySelector("link").innerHTML,
+            }));
+          items.forEach((item) => {
+            let div = document.createElement("div");
+            div.innerHTML = `<a href='${item.link}'>${new Date(
+              item.date
+            ).toLocaleString()} - ${item.title}</a>`;
+            newsContainer.appendChild(div);
+          });
+        });
+
+      function changeTheme() {
+        container.style.backgroundColor = theme === 1 ? "#fff" : "#000";
+        container.style.color = theme === 1 ? "#000" : "#fff";
+        theme = theme === 1 ? 0 : 1;
+      }
+    </script>
+  </body>
+</html>
